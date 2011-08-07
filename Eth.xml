@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Tasks>
+    <AddDefaultJobs />
+    <LoadMesh Name="Defiant 1-6" />
+    <AddJob>
+      <Vendor SellWhites="False" SellGreens="True" SellBlues="True" SellPurples="False">
+        <Vendors>
+          <!-- LastLight -->
+          <Vendor X="614.9111" Y="37.837" Z="1025.743" />
+		  <!-- Tempest Station -->
+		  <Vendor X="639.3136" Y="29.5464" Z="854.2921"/>
+		  <!-- Rubicon -->
+		  <Hotspot X="462.8789" Y="82.51995" Z="794.9" />
+        </Vendors>
+      </Vendor>
+    </AddJob>
+
+	<!-- First quest -->
+	
+	<!-- Deleted or comment this IF statment after picking up the first quest. -->
+	<!-- 
+	<Python Statement="Logging.Write(&quot;Please manually grab quest before starting bot!\n&quot;)" />
+	<Python Statement="GigaBot.Stop()" />
+	<If Condition="HasQuest(&quot;Born Again&quot;)">
+	<Python Statement="Logging.Write(&quot;You have the quest!\nNow delete or comment the IF statment in the questing profile. Lines 19 through 24 :)\nReadme for more details.&quot;)" />
+	<Python Statement="GigaBot.Stop()" />
+	</If>
+	 -->
+	<!-- Deleted or comment this IF statment after picking up the first quest. -->
+
+
+	<Python Statement="Logging.Write(&quot;Please manually grab the first quest!!!&quot;)" />
+	<PickUpQuest Name="Born Again" />
+	<!-- Turn in -->
+    <If Condition="HasQuest(&quot;Born Again&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+        <TurnInQuest Name="Born Again" Npc="Sylver Valis" X="1059.75" Y="71.98071" Z="1013.029" Reward="2" />
+      </If>
+
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+        <TurnInQuest Name="Born Again" Npc="Sylver Valis" X="1059.75" Y="71.98071" Z="1013.029" Reward="8" />
+      </If>
+
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <TurnInQuest Name="Born Again" Npc="Sylver Valis" X="1059.75" Y="71.98071" Z="1013.029" Reward="2" />
+      </If>
+
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <!-- Beastmaster 1 Champion 2 Paladin 3 -->
+        <TurnInQuest Name="Born Again" Npc="Sylver Valis" X="1059.75" Y="71.98071" Z="1013.029" Reward="2" />
+      </If>
+    </If>
+    <PickUpQuest Name="Ascended of the Highest Quality" Npc="Sylver Valis" X="1059.75" Y="71.98071" Z="1013.029" />
+    <TurnInQuest Name="Ascended of the Highest Quality" Npc="Dacia Ultan" X="967.5859" Y="70.817" Z="1011.865" Reward="1" />
+
+	<!-- Pick up -->
+
+	<PickUpQuest Name="Trial of Ascension" Npc="Dacia Ultan" X="967.5859" Y="70.817" Z="1011.865" />
+
+    <KillMobsObjective Quest="Trial of Ascension" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Telaran Husk</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="917.2369" Y="72.63232" Z="1038.004" />
+		  <Hotspot X="884.7945" Y="66.02346" Z="1011.464" />
+		  <Hotspot X="907.886" Y="67.50268" Z="1007.033" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+	<TurnInQuest Name="Trial of Ascension" Npc="Dacia Ultan" X="967.5859" Y="70.817" Z="1011.865" />
+	<PickUpQuest Name="Our Last Stand" Npc="Dacia Ultan" X="967.5859" Y="70.817" Z="1011.865" />
+	
+		<UseObjectsObjective Quest="Our Last Stand" Tracking="1">
+		  <Area>
+			<Objects>
+			  <Object>Defense Console</Object>
+			</Objects>
+			<Hotspots>
+			  <Hotspot X="924.0096" Y="72.64127" Z="1055.076" />
+			  <Hotspot X="880.3047" Y="66.44321" Z="1003.427" />
+			  <Hotspot X="839.5467" Y="66.60952" Z="1018.259" />
+			  <Hotspot X="878.4185" Y="66.04712" Z="1023.683" />
+			</Hotspots>
+		  </Area>
+		</UseObjectsObjective>
+	
+    <TurnInQuest Name="Our Last Stand" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
+	
+	<!-- Rewards -->
+
+    <PickUpQuest Name="Thorn in My Side" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
+    <PickUpQuest Name="Gathering Power" Npc="Vexa Ix'thla" X="752.3445" Y="62.86002" Z="967.8215" />
+	<Wait Seconds="2" />
+	<If Condition="HasQuest(&quot;Gathering Power&quot;)">
+	   <If Condition="Me.Class == UnitClass.Warrior">
+	<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Hatchet&quot;)" />
+	   </If>
+	   <If Condition="Me.Class == UnitClass.Rogue">
+	<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Shiv&quot;)" />
+	<Wait Seconds="2" />
+	<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Restrung Bow&quot;)" />
+	   </If>
+	</If>
+
+     <KillMobsObjective Quest="Gathering Power" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Spectral Harvester</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="741.7373" Y="62.62384" Z="1021.55" />
+		  <Hotspot X="758.795" Y="62.70174" Z="988.2618" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+       <KillMobsObjective Quest="Thorn in My Side" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Endless Dominator</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="742.0013" Y="62.53461" Z="1027.604" />
+		  <Hotspot X="716.6121" Y="63.01562" Z="1039.87" />
+		  <Hotspot X="743.2225" Y="64.38955" Z="1057.477" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+	<KillMobsObjective Quest="Thorn in My Side" Tracking="2">
+      <Area>
+        <Mobs>
+          <Mob>Spectral Harvester</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="730.7979" Y="62.72504" Z="1032.684" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+    <TurnInQuest Name="Gathering Power" Npc="Kain Sunsworn" X="606.6964" Y="37.8368" Z="1008.088" />
+	<PickUpQuest Name="Paving The Way" Npc="Kain Sunsworn" X="606.6964" Y="37.8368" Z="1008.088" />
+	<If Condition="HasQuest(&quot;Paving The Way&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+        <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" Reward="5"  />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+        <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" Reward="4" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877"  Reward="2" />
+		<Wait Seconds="2" />
+		<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Tunic of Rebirth&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" Reward="1" />
+		<Wait Seconds="2" />
+		<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Cuirass of Rebirth&quot;)" />
+      </If>
+    </If>
+    <PickUpQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+	
+		<!-- Eth -->	<PickUpQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
+
+		<UseObjectsObjective Quest="Flipping the Switch" Tracking="1">
+		  <Area>
+			<Objects>
+			  <Object>Temporal Flux</Object>
+			</Objects>
+			<Hotspots>
+			  <Hotspot X="792.4966" Y="25.42617" Z="961.2877" />
+			</Hotspots>
+		  </Area>
+		</UseObjectsObjective>
+
+     <KillMobsObjective Quest="Paving The Way" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Hulking Phantasm</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="651.3269" Y="26.50299" Z="991.36" />
+		  <Hotspot X="687.48" Y="25.85578" Z="994.1624" />
+		  <Hotspot X="700.5525" Y="25.46264" Z="944.9709" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+	 <KillMobsObjective Quest="War Effort" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Hulking Phantasm</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="651.3269" Y="26.50299" Z="991.36" />
+		  <Hotspot X="687.48" Y="25.85578" Z="994.1624" />
+		  <Hotspot X="700.5525" Y="25.46264" Z="944.9709" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+    <TurnInQuest Name="Paving The Way" Npc="Kain Sunsworn" X="606.6964" Y="37.8368" Z="1008.088" />
+
+    <TurnInQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
+    <TurnInQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+
+    <!-- Tell user to awake up! -->
+    <Python Statement="Logging.Write(&quot;Quest items must be moved to inventory!!&quot;)" />
+
+	<PickUpQuest Name="Turning the Knob" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+	<PickUpQuest Name="Walking the Dogma" Npc="Ignacia Bulwart" X="607.1439" Y="37.8368" Z="1008.177" />
+
+	<If Condition="HasQuest(&quot;Walking the Dogma&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+	  <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Sabatons of Rebirth&quot;)" />
+	  </If>
+	</If>
+
+	 <KillMobsObjective Quest="Walking the Dogma" Tracking="2">
+      <Area>
+        <Mobs>
+          <Mob>Guardian Zealot</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="548.372" Y="21.06931" Z="934.0961" />
+		  <Hotspot X="546.2695" Y="23.05052" Z="912.6414" />
+		  <Hotspot X="550.7681" Y="21.07144" Z="865.991" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+	
+	 <KillMobsObjective Quest="Walking the Dogma" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Guardian Sergeant</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="548.372" Y="21.06931" Z="934.0961" />
+		  <Hotspot X="546.2695" Y="23.05052" Z="912.6414" />
+		  <Hotspot X="550.7681" Y="21.07144" Z="865.991" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+    <!-- Tell user to awake up! -->
+	<If Condition="HasQuest(&quot;Turning the Knob&quot;)">
+		<Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
+        <MoveTo X="550.2408" Y="23.51773" Z="911.3668" />
+		<Wait Seconds="3" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Resonance Capacitor&quot;)" />
+		<Python Statement="Logging.Write(&quot;Quest items are broken\nPlease manually do quest.\nOr move quest item to inventory&quot;)" />
+		<Wait Seconds="3" />
+		
+	<KillMobsObjective Quest="Turning the Knob" Tracking="2">
+      <Area>
+        <Mobs>
+          <Mob>Frederic the Betrayer</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="545.2169" Y="22.93574" Z="911.7714" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+	</If>
+
+	<If Condition="HasQuest(&quot;Walking the Dogma&quot;)">
+	<TurnInQuest Name="Walking the Dogma" Npc="Ignacia Bulwart" X="607.1439" Y="37.8368" Z="1008.177" />
+	</If>
+
+    <TurnInQuest Name="Turning the Knob" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+
+	<If Condition="Me.Class == UnitClass.Warrior">
+    <PickUpQuest Name="A Matter of Training" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+	<If Condition="HasQuest(&quot;A Matter of Training&quot;)">
+
+      <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Timeworn Pouch&quot;)" />
+      <Wait Seconds="2" />
+      <If Condition="GigaRift.Frames.YesNoDialogFrame.IsVisible">
+        <Python Statement="GigaRift.Frames.YesNoDialogFrame.ClickYes()" />
+      </If>
+	<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Plate Girdle of Rebirth&quot;)" />
+	</If>
+    <TurnInQuest Name="A Matter of Training" Npc="Bellorus the Marked" X="643.1469" Y="29.5464" Z="853.891" />
+	</If>
+
+	<PickUpQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" />
+		<PickUpQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+	<Wait Seconds="1" />
+      <Python Statement = "GigaRift.Me.ClearTarget()" />
+	<If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)">
+	<Python Statement="Logging.Write(&quot;Manually move quest items to inventory!&quot;)" />
+	</If>
+	
+	<If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)">
+		<Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
+        <MoveTo X="736.2847" Y="29.37684" Z="871.0002" />
+		<Wait Seconds="2" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		<Wait Seconds="2" />
+        <MoveTo X="741.6055" Y="29.37684" Z="866.2371"  />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		<Wait Seconds="2" />
+		<Wait Seconds="2" />
+		<MoveTo X="740.7469" Y="29.3648" Z="872.0793" />
+		<Wait Seconds="2" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		<Wait Seconds="2" />
+        <MoveTo X="750.0294" Y="29.37684" Z="869.834" />
+		<Wait Seconds="3" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		<Wait Seconds="2" />
+        <MoveTo X="753.1906" Y="29.37684" Z="868.2833" />
+		<Wait Seconds="2" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		<Wait Seconds="2" />
+        <MoveTo X="743.5255" Y="29.36846" Z="864.4349" />
+		<Wait Seconds="2" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Emergency Aquafier&quot;)" />
+		</If>
+		<UseObjectsObjective Quest="Fully Armed and Operational" Tracking="2">
+		  <Area>
+			<Objects>
+			  <Object>Automata Inflector</Object>
+			</Objects>
+			<Hotspots>
+			  <Hotspot X="743.3961" Y="29.37684" Z="864.3808" />
+			</Hotspots>
+		  </Area>
+		</UseObjectsObjective>
+
+		<TurnInQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" />
+	<!--If Condition="HasQuest(&quot;Reduce, Recycle, Reeducate&quot;)" -->
+	<If Condition="((HasQuest(&quot;Reduce, Recycle, Reeducate&quot;)) and (not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)))">
+		<MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
+		<Wait Seconds="28" />
+		<Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
+		<UseItemOnMobsObjective Quest="Reduce, Recycle, Reeducate" Item="Soul Reclamation Device" CastTime="9" Cooldown="9" WhenDead="true" Tracking="1">
+		  <Area>
+			<Mobs>
+			  <Mob>Shyla the Fallen</Mob>
+			</Mobs>
+			<Hotspots>
+			  <Hotspot X="665.3521" Y="30.02149" Z="789.2947" />
+			</Hotspots>
+		  </Area>
+		</UseItemOnMobsObjective>
+		<Wait Seconds="2" />
+	</If>
+
+	<TurnInQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+	<!-- equip -->
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+		<Wait Seconds="2" />
+		<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
+      </If>
+	<!-- equip -->
+	<PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+
+    <If Condition="((HasQuest(&quot;This Might Hurt a Little&quot;)) and (not IsQuestCompleted(&quot;This Might Hurt a Little&quot;)))">
+		<UseObjectsObjective Quest="This Might Hurt a Little" Tracking="1">
+		  <Area>
+			<Objects>
+			  <Object>Soul Rebinder</Object>
+			</Objects>
+			<Hotspots>
+			  <Hotspot X="635.356" Y="29.69947" Z="870.7019" />
+			  <Hotspot X="637.4602" Y="29.70988" Z="878.3189" />
+			</Hotspots>
+		  </Area>
+		</UseObjectsObjective>
+
+	<KillMobsObjective Quest="This Might Hurt a Little" Tracking="2">
+      <Area>
+        <Mobs>
+          <Mob>Sundered Soul</Mob>
+        </Mobs>
+        <Hotspots>
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+	</If>
+		<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)" />
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="5"  />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="4" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622"  Reward="2" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="1" />
+		<Wait Seconds="2" />
+		<Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
+	  </If>
+	    </If>
+
+	<PickUpQuest Name="Applied Theory" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+	<PickUpQuest Name="You Reap What You Sow" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
+	  
+	<KillMobsObjective Quest="Applied Theory" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Risen Telaran</Mob>
+		  <Mob>Decaying Telaran</Mob>
+		  <Mob></Mob>
+		  <Mob></Mob>
+        </Mobs>
+        <Hotspots>
+		   <Hotspot X="736.7554" Y="29.37963" Z="859.1651" />
+		   <Hotspot X="707.2548" Y="34.28842" Z="852.6629" />
+		   <Hotspot X="713.8026" Y="34.28842" Z="823.3854" />
+		   <Hotspot X="748.5997" Y="37.35909" Z="819.6213" />
+		   <Hotspot X="718.2251" Y="39.01584" Z="786.8569" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+	<KillMobsObjective Quest="You Reap What You Sow" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Soul Caller</Mob>
+        </Mobs>
+        <Hotspots>
+		  <Hotspot X="716.687" Y="34.223" Z="830.2736" />
+		  <Hotspot X="704.6907" Y="34.22804" Z="859.1098" />
+		  <Hotspot X="748.2609" Y="37.21824" Z="825.4008" />
+		  <Hotspot X="705.0559" Y="39.1328" Z="786.3728" />
+		  <Hotspot X="674.7108" Y="34.29371" Z="816.965" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
+	<TurnInQuest Name="You Reap What You Sow" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
+	<TurnInQuest Name="Applied Theory" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+
+	<PickUpQuest Name="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
+	  <If Condition="HasQuest(&quot;No Quarter&quot;)">
+		<Python Statement = "GigaRift.Me.ClearTarget()" />
+		<Wait Seconds="28" />
+		<Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Greaves of Rebirth&quot;)" />
+		<Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
+		<TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
+	   </If>
+
+	<PickUpQuest Name="Into the Time Machine" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
+	<PickUpQuest Name="Special Delivery" Npc="Quaeni Nidain" X="477.17" Y="88.42918" Z="848.9308" />
+	
+	  <If Condition="HasQuest(&quot;Special Delivery&quot;)">
+	    <MoveTo X="489.2943" Y="100.9236" Z="900.8349" />
+		<Python Statement="Logging.Write(&quot;Bot doesn't support talking to NPC's in that way, sorry.\nTalk to the NPC and do the RIFT :D&quot;)" />
+			<Python Statement="GigaBot.Stop()" />
+		</If>
+  </Tasks>
+</Profile>
