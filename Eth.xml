@@ -89,7 +89,6 @@
     <TurnInQuest Name="Our Last Stand" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
 
     <!-- Rewards -->
-
     <PickUpQuest Name="Thorn in My Side" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
     <PickUpQuest Name="Gathering Power" Npc="Vexa Ix'thla" X="752.3445" Y="62.86002" Z="967.8215" />
     <Wait Seconds="2" />
@@ -205,6 +204,20 @@
     </KillMobsObjective>
 
 <!-- todo | Spirit coercion -->
+     <KillMobsObjective Quest="Spirit Coercion" Tracking="1">
+      <Area>
+        <Mobs>
+          <Mob>Wayward Spirit</Mob>
+        </Mobs>
+        <Hotspots>
+          <Hotspot X="674.6988" Y="26.43615" Z="957.1033" />
+          <Hotspot X="705.3597" Y="25.66684" Z="939.5405" />
+          <Hotspot X="626.0669" Y="16.53432" Z="915.473" />
+          <Hotspot X="658.1862" Y="18.77993" Z="919.3175" />
+        </Hotspots>
+      </Area>
+    </KillMobsObjective>
+
 
      <KillMobsObjective Quest="War Effort" Tracking="1">
       <Area>
@@ -263,16 +276,6 @@
         </Hotspots>
       </Area>
     </KillMobsObjective>
-
-    <!-- Tell user to awake up! -->
-    <!--If Condition="HasQuest(&quot;Turning the Knob&quot;)">
-        <Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
-        <MoveTo X="550.2408" Y="23.51773" Z="911.3668" />
-        <Wait Seconds="3" />
-        <Python Statement = "SpellManager.UseItem(&quot;Resonance Capacitor&quot;)" />
-        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;use Resonance Capacitor&quot;)" />
-        <Python Statement="Logging.Write(&quot;Quest items are broken\nPlease manually do quest.\nOr move quest item to inventory&quot;)" />
-        <Wait Seconds="3" / -->
 
     <If Condition="not IsQuestCompleted(&quot;Turning the Knob&quot;)">
         <MoveTo X="550.2408" Y="23.51773" Z="911.3668" />
@@ -370,9 +373,8 @@
     </UseObjectsObjective>
     </If>
 
-        <TurnInQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" Reward="5" />
-    <!--If Condition="HasQuest(&quot;Reduce, Recycle, Reeducate&quot;)" -->
-    <!--If Condition="((HasQuest(&quot;Reduce, Recycle, Reeducate&quot;)) and (not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)))"-->
+    <TurnInQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" Reward="5" />
+
     <If Condition="not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)">
 	<MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
         <Wait Seconds="28" />
@@ -392,14 +394,20 @@
 	  </UseItemOnMobsObjective>
 
     <TurnInQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+    <PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
 	<!-- equip -->
-      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
-        <Wait Seconds="2" />
-        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
-      </If>
-    <!-- equip -->
-    <PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
+	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
+    <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+    <Wait Seconds="2" />
+    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
+    </If>
+
+    <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+    <Wait Seconds="2" />
+    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Sash of Rebirth&quot;)" />
+    </If>
+    </If>
 
     <If Condition="((HasQuest(&quot;This Might Hurt a Little&quot;)) and (not IsQuestCompleted(&quot;This Might Hurt a Little&quot;)))">
     <UseObjectsObjective Quest="This Might Hurt a Little" Tracking="1">
