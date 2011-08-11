@@ -105,6 +105,10 @@
         <Wait Seconds="2" />
         <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Restrung Bow&quot;)" />
        </If>
+       <If Condition="Me.Class == UnitClass.Cleric">
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Mace&quot;)" />
+       </If>
     </If>
 
      <KillMobsObjective Quest="Gathering Power" Tracking="1">
@@ -153,6 +157,7 @@
     <If Condition="HasQuest(&quot;Paving The Way&quot;)">
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
         <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" Reward="5"  />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Links of Rebirth&quot;)" />
       </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Mage">
         <TurnInQuest Name="Thorn in My Side" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" Reward="4" />
@@ -239,6 +244,9 @@
     <PickUpQuest Name="Walking the Dogma" Npc="Ignacia Bulwart" X="607.1439" Y="37.8368" Z="1008.177" />
 
     <If Condition="HasQuest(&quot;Walking the Dogma&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+      <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Boots of Rebirth&quot;)" />
+      </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
       <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Sabatons of Rebirth&quot;)" />
       </If>
@@ -325,6 +333,20 @@
     <TurnInQuest Name="A Matter of Training" Npc="Mistress Ashear" X="632.5066" Y="29.5464" Z="859.2482" />
     </If>
 
+    <!-- Cleric -->
+    <If Condition="Me.Class == UnitClass.Cleric">
+    <PickUpQuest Name="A Matter of Training" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+    <If Condition="HasQuest(&quot;A Matter of Training&quot;)">
+    <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Timeworn Pouch&quot;)" />
+    <Wait Seconds="2" />
+      <If Condition="GigaRift.Frames.YesNoDialogFrame.IsVisible">
+        <Python Statement="GigaRift.Frames.YesNoDialogFrame.ClickYes()" />
+      </If>
+    <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Chain Girdle of Rebirth&quot;)" />
+    </If>
+    <TurnInQuest Name="A Matter of Training" Npc="Purifier Turaz" X="634.2419" Y="29.5464" Z="856.1467" />
+    </If>
+
     <PickUpQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" />
     <PickUpQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
     <Wait Seconds="1" />
@@ -397,6 +419,11 @@
 	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
     <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
     <Wait Seconds="2" />
+    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Fists of Rebirth&quot;)" />
+    </If>
+
+    <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+    <Wait Seconds="2" />
     <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
     </If>
 
@@ -433,6 +460,8 @@
     <If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)" />
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
         <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="5"  />
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Reinforced Leggings of Rebirth&quot;)" />
       </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Mage">
         <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="4" />
