@@ -410,14 +410,14 @@
           <Hotspot X="665.3521" Y="30.02149" Z="789.2947" />
         </Hotspots>
       </Area>
-	  </UseItemOnMobsObjective>
+	</UseItemOnMobsObjective>
 
     <TurnInQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
     <PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
 	<!-- equip -->
 	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
-    <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+    <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
     <Wait Seconds="2" />
     <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Fists of Rebirth&quot;)" />
     </If>
