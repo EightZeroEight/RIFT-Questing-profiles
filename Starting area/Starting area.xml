@@ -494,6 +494,7 @@
 	  <If Condition="GigaRift.Me.Class == UnitClass.Mage">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Silken Pantaloons of Rebirth&quot;)" />
       </If>
+    </If>
 
     <RemoveJob>
       <Job Name="HandleCombat" />
@@ -505,9 +506,8 @@
     <TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
 
     <AddJob>
-      <Job Name="HandleCombat" />
+      <HandleCombat />
     </AddJob>
-    </If>
 
     <PickUpQuest Name="Into the Time Machine" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
     <PickUpQuest Name="Special Delivery" Npc="Quaeni Nidain" X="477.17" Y="88.42918" Z="848.9308" />
