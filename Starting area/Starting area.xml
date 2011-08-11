@@ -91,18 +91,19 @@
     <!-- Rewards -->
     <PickUpQuest Name="Thorn in My Side" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
     <PickUpQuest Name="Gathering Power" Npc="Vexa Ix'thla" X="752.3445" Y="62.86002" Z="967.8215" />
-    <Wait Seconds="2" />
+
     <If Condition="HasQuest(&quot;Gathering Power&quot;)">
+    <Wait Seconds="2" />
        <If Condition="Me.Class == UnitClass.Warrior">
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Hatchet&quot;)" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Hatchet&quot;)" />
        </If>
        <If Condition="Me.Class == UnitClass.Mage">
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Staff&quot;)" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Staff&quot;)" />
        </If>
        <If Condition="Me.Class == UnitClass.Rogue">
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Shiv&quot;)" />
-    <Wait Seconds="2" />
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Restrung Bow&quot;)" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Balanced Shiv&quot;)" />
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Restrung Bow&quot;)" />
        </If>
     </If>
 
@@ -203,7 +204,6 @@
       </Area>
     </KillMobsObjective>
 
-<!-- todo | Spirit coercion -->
      <KillMobsObjective Quest="Spirit Coercion" Tracking="1">
       <Area>
         <Mobs>
@@ -217,7 +217,6 @@
         </Hotspots>
       </Area>
     </KillMobsObjective>
-
 
      <KillMobsObjective Quest="War Effort" Tracking="1">
       <Area>
@@ -378,11 +377,9 @@
     <If Condition="not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)">
 	<MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
         <Wait Seconds="28" />
-        <Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
-        <Python Statement = "SpellManager.UseItem(&quot;Soul Reclamation Device&quot;)" />
     </If>
 
-    <UseItemOnMobsObjective Quest="Reduce, Recycle, Reeducate" Item="Soul Reclamation Device" CastTime="4" Cooldown="9" WhenDead="true" Tracking="1">
+    <UseItemOnMobsObjective Quest="Reduce, Recycle, Reeducate" Item="Soul Reclamation Device" CastTime="4" Cooldown="7" WhenDead="true" Tracking="1">
       <Area>
         <Mobs>
           <Mob>Shyla the Fallen</Mob>
@@ -405,7 +402,7 @@
 
     <If Condition="GigaRift.Me.Class == UnitClass.Mage">
     <Wait Seconds="2" />
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Sash of Rebirth&quot;)" />
+    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gloves of Rebirth&quot;)" />
     </If>
     </If>
 
@@ -432,6 +429,7 @@
       </Area>
     </KillMobsObjective>
     </If>
+
     <If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)" />
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
         <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="5"  />
@@ -488,13 +486,28 @@
     <TurnInQuest Name="Applied Theory" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
     <PickUpQuest Name="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
-      <If Condition="HasQuest(&quot;No Quarter&quot;)">
-        <Python Statement = "GigaRift.Me.ClearTarget()" />
-        <Wait Seconds="28" />
+    <If Condition="HasQuest(&quot;No Quarter&quot;)">
+    <Python Statement = "GigaRift.Me.ClearTarget()" />
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Greaves of Rebirth&quot;)" />
-        <Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
-        <TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
-       </If>
+      </If>
+	  <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Silken Pantaloons of Rebirth&quot;)" />
+      </If>
+
+    <RemoveJob>
+      <Job Name="HandleCombat" />
+    </RemoveJob>
+
+    <Wait Seconds="28" />
+    <Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
+
+    <TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
+
+    <AddJob>
+      <Job Name="HandleCombat" />
+    </AddJob>
+    </If>
 
     <PickUpQuest Name="Into the Time Machine" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
     <PickUpQuest Name="Special Delivery" Npc="Quaeni Nidain" X="477.17" Y="88.42918" Z="848.9308" />
