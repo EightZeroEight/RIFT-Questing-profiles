@@ -517,6 +517,9 @@
     <PickUpQuest Name="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
     <If Condition="HasQuest(&quot;No Quarter&quot;)">
     <Python Statement = "GigaRift.Me.ClearTarget()" />
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Reinforced Leggings of Rebirth&quot;)" />
+      </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Greaves of Rebirth&quot;)" />
       </If>
