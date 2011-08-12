@@ -175,6 +175,7 @@
         <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Cuirass of Rebirth&quot;)" />
       </If>
     </If>
+
     <PickUpQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
 
     <If Condition="HasQuestAvailable(&quot;Kaspar Massi&quot;)">
@@ -254,7 +255,7 @@
       <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Cloth Slippers of Rebirth&quot;)" />
       </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
-      <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Sabatons of Rebirth&quot;)" />
+      <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Rawhide Boots of Rebirth&quot;)" />
       </If>
     </If>
 
@@ -347,6 +348,20 @@
     <TurnInQuest Name="A Matter of Training" Npc="Purifier Turaz" X="634.2419" Y="29.5464" Z="856.1467" />
     </If>
 
+    <!-- Rogue -->
+    <If Condition="Me.Class == UnitClass.Rogue">
+    <PickUpQuest Name="A Matter of Training" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
+    <If Condition="HasQuest(&quot;A Matter of Training&quot;)">
+    <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Timeworn Pouch&quot;)" />
+    <Wait Seconds="2" />
+      <If Condition="GigaRift.Frames.YesNoDialogFrame.IsVisible">
+        <Python Statement="GigaRift.Frames.YesNoDialogFrame.ClickYes()" />
+      </If>
+    <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Rawhide Belt of Rebirth&quot;)" />
+    </If>
+    <TurnInQuest Name="A Matter of Training" Npc="Pela Fashine" X="645.3711" Y="29.5464" Z="854.0648" />
+    </If>
+
     <PickUpQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" />
     <PickUpQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
     <Wait Seconds="1" />
@@ -417,20 +432,22 @@
 
 	<!-- equip -->
 	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
-    <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
-    <Wait Seconds="2" />
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Fists of Rebirth&quot;)" />
-    </If>
-
-    <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
-    <Wait Seconds="2" />
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
-    </If>
-
-    <If Condition="GigaRift.Me.Class == UnitClass.Mage">
-    <Wait Seconds="2" />
-    <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gloves of Rebirth&quot;)" />
-    </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Fists of Rebirth&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gauntlets of Rebirth&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Gloves of Rebirth&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <Wait Seconds="2" />
+        <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Handguards of Rebirth&quot;)" />
+      </If>
     </If>
 
     <If Condition="((HasQuest(&quot;This Might Hurt a Little&quot;)) and (not IsQuestCompleted(&quot;This Might Hurt a Little&quot;)))">
@@ -525,6 +542,9 @@
       </If>
 	  <If Condition="GigaRift.Me.Class == UnitClass.Mage">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Silken Pantaloons of Rebirth&quot;)" />
+      </If>
+	  <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Leather Pants of Rebirth&quot;)" />
       </If>
     </If>
 
