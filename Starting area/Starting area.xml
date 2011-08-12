@@ -88,7 +88,6 @@
 
     <TurnInQuest Name="Our Last Stand" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
 
-    <!-- Rewards -->
     <PickUpQuest Name="Thorn in My Side" Npc="Koke Tegus" X="760.6418" Y="62.95139" Z="963.3972" />
     <PickUpQuest Name="Gathering Power" Npc="Vexa Ix'thla" X="752.3445" Y="62.86002" Z="967.8215" />
 
@@ -179,11 +178,12 @@
     <PickUpQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
 
     <If Condition="HasQuestAvailable(&quot;Kaspar Massi&quot;)">
-	<!-- Eth -->    <PickUpQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
+	<!-- Eth -->
+    <PickUpQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
     </If>
-
     <If Condition="HasQuestAvailable(&quot;Anthousa Mona&quot;)">
-	<!-- Kelari -->    <PickUpQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
+	<!-- Kelari -->
+    <PickUpQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
     </If>
 
     <UseObjectsObjective Quest="Flipping the Switch" Tracking="1">
@@ -210,7 +210,7 @@
       </Area>
     </KillMobsObjective>
 
-     <KillMobsObjective Quest="Spirit Coercion" Tracking="1">
+    <KillMobsObjective Quest="Spirit Coercion" Tracking="1">
       <Area>
         <Mobs>
           <Mob>Wayward Spirit</Mob>
@@ -239,6 +239,7 @@
 
     <TurnInQuest Name="Paving The Way" Npc="Kain Sunsworn" X="606.6964" Y="37.8368" Z="1008.088" />
     <TurnInQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
+    <TurnInQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
     <TurnInQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
 
     <PickUpQuest Name="Turning the Knob" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
@@ -413,7 +414,7 @@
 
     <If Condition="not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)">
 	<MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
-        <Wait Seconds="28" />
+    <Wait Seconds="28" />
     </If>
 
     <UseItemOnMobsObjective Quest="Reduce, Recycle, Reeducate" Item="Soul Reclamation Device" CastTime="4" Cooldown="7" WhenDead="true" Tracking="1">
@@ -430,7 +431,6 @@
     <TurnInQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
     <PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
-	<!-- equip -->
 	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
         <Wait Seconds="2" />
