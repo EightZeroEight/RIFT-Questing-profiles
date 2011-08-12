@@ -11,7 +11,7 @@
           <!-- Tempest Station -->
           <Vendor X="639.3136" Y="29.5464" Z="854.2921"/>
           <!-- Rubicon -->
-          <Hotspot X="462.8789" Y="82.51995" Z="794.9" />
+          <Vendor X="462.8789" Y="82.51995" Z="794.9" />
         </Vendors>
       </Vendor>
     </AddJob>
@@ -185,6 +185,10 @@
 	<!-- Kelari -->
     <PickUpQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
     </If>
+    <If Condition="HasQuestAvailable(&quot;Anthousa Mona&quot;)">
+	<!-- Bahmi -->
+    <PickUpQuest Name="Bound in Blood" Npc="Rahn Chuluun" X="609.3197" Y="37.8368" Z="1020.111" />
+    </If>
 
     <UseObjectsObjective Quest="Flipping the Switch" Tracking="1">
       <Area>
@@ -197,7 +201,7 @@
       </Area>
     </UseObjectsObjective>
 
-     <KillMobsObjective Quest="Paving The Way" Tracking="1">
+    <KillMobsObjective Quest="Paving The Way" Tracking="1">
       <Area>
         <Mobs>
           <Mob>Hulking Phantasm</Mob>
@@ -224,7 +228,7 @@
       </Area>
     </KillMobsObjective>
 
-     <KillMobsObjective Quest="War Effort" Tracking="1">
+    <KillMobsObjective Quest="War Effort" Tracking="1">
       <Area>
         <Mobs>
           <Mob>Hulking Phantasm</Mob>
@@ -237,9 +241,26 @@
       </Area>
     </KillMobsObjective>
 
+    <UseObjectsObjective Quest="Bound in Blood" Tracking="1">
+      <Area>
+        <Objects>
+          <Object>Corrupted Defiant Device</Object>
+        </Objects>
+        <Hotspots>
+          <Hotspot X="632.1741" Y="32.25537" Z="966.5582" />
+          <Hotspot X="679.4449" Y="26.52971" Z="967.9093" />
+          <Hotspot X="649.5606" Y="26.70077" Z="986.9096" />
+          <Hotspot X="689.8566" Y="24.99781" Z="920.2953" />
+          <Hotspot X="694.3288" Y="25.4524" Z="942.8012" />
+          <Hotspot X="718.6213" Y="25.71991" Z="952.2727" />
+        </Hotspots>
+      </Area>
+    </UseObjectsObjective>
+
     <TurnInQuest Name="Paving The Way" Npc="Kain Sunsworn" X="606.6964" Y="37.8368" Z="1008.088" />
     <TurnInQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
     <TurnInQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
+    <TurnInQuest Name="Bound in Blood" Npc="Rahn Chuluun" X="609.3197" Y="37.8368" Z="1020.111" />
     <TurnInQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
 
     <PickUpQuest Name="Turning the Knob" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
@@ -532,6 +553,7 @@
     <TurnInQuest Name="Applied Theory" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
     <PickUpQuest Name="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" />
+
     <If Condition="HasQuest(&quot;No Quarter&quot;)">
     <Python Statement = "GigaRift.Me.ClearTarget()" />
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
@@ -552,7 +574,10 @@
       <Job Name="HandleCombat" />
     </RemoveJob>
 
-    <Wait Seconds="28" />
+	<TalkToNpcObjective Quest="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" Options="1,1" />
+    <If Condition="HasQuest(&quot;No Quarter&quot;)">
+    <Wait Seconds="18" />
+    </If>
     <Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
 
     <TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
