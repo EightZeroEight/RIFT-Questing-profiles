@@ -574,24 +574,24 @@
       <Job Name="HandleCombat" />
     </RemoveJob>
 
-	<TalkToNpcObjective Quest="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" Options="1,1" />
     <If Condition="HasQuest(&quot;No Quarter&quot;)">
+    <TalkToNpcObjective Quest="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" Options="1,1" />
     <Wait Seconds="18" />
     </If>
     <Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
 
     <TurnInQuest Name="No Quarter" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
 
-    <AddJob>
-      <HandleCombat />
-    </AddJob>
+    <ClearJobs />
+    <AddDefaultJobs />
 
     <PickUpQuest Name="Into the Time Machine" Npc="Isach Undugar" X="475.8458" Y="82.8278" Z="814.2885" />
     <PickUpQuest Name="Special Delivery" Npc="Quaeni Nidain" X="477.17" Y="88.42918" Z="848.9308" />
 
     <If Condition="HasQuest(&quot;Special Delivery&quot;)">
     <MoveTo X="489.2943" Y="100.9236" Z="900.8349" />
-    <Python Statement="Logging.Write(&quot;Bot doesn't support talking to NPC's in that way, sorry.\nTalk to the NPC and do the RIFT :D&quot;)" />
+    <TalkToNpcObjective Quest="Into the Time Machine" Npc="Stavel Rosso" X="492.7389" Y="101.1343" Z="901.6184" Options="1,1" Tracking="1" />
+    <Python Statement="Logging.Write(&quot;Kill the mobs and walk through the portal!&quot;)" />
     <Python Statement="GigaBot.Stop()" />
     </If>
 
