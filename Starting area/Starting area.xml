@@ -19,21 +19,21 @@
     <If Condition="HasQuestAvailable(&quot;Bulina Falswin&quot;)">
     <PickUpQuest Name="Born Again" Npc="Bulina Falswin" X="1052.826" Y="65.77277" Z="989.7864" />
     </If>
-	<If Condition="HasQuestAvailable(&quot;Valyn Marsip&quot;)">
+    <If Condition="HasQuestAvailable(&quot;Valyn Marsip&quot;)">
     <PickUpQuest Name="Born Again" Npc="Valyn Marsip" X="1058.729" Y="65.77132" Z="990.3672" />
     </If>
-	<If Condition="HasQuestAvailable(&quot;Korman Lethrop&quot;)">
+    <If Condition="HasQuestAvailable(&quot;Korman Lethrop&quot;)">
     <PickUpQuest Name="Born Again" Npc="Korman Lethrop" X="1066.315" Y="65.76924" Z="991.2815" />
     </If>
 
-	<!-- Left side -->
+    <!-- Left side -->
     <If Condition="HasQuestAvailable(&quot;Sulyn Palsmi&quot;)">
     <PickUpQuest Name="Born Again" Npc="Sulyn Palsmi" X="1052.525" Y="65.77104" Z="1007.721" />
     </If>
-	<If Condition="HasQuestAvailable(&quot;Galfor Noram&quot;)">
+    <If Condition="HasQuestAvailable(&quot;Galfor Noram&quot;)">
     <PickUpQuest Name="Born Again" Npc="Galfor Noram" X="1058.895" Y="65.77184" Z="1008.576" />
     </If>
-	<If Condition="HasQuestAvailable(&quot;Marisha Varlika&quot;)">
+    <If Condition="HasQuestAvailable(&quot;Marisha Varlika&quot;)">
     <PickUpQuest Name="Born Again" Npc="Marisha Varlika" X="1062.614" Y="65.76948" Z="1008.375" />
     </If>
 
@@ -178,15 +178,15 @@
     <PickUpQuest Name="Flipping the Switch" Npc="Asha Catari" X="602.4847" Y="37.8368" Z="1008.877" />
 
     <If Condition="HasQuestAvailable(&quot;Kaspar Massi&quot;)">
-	<!-- Eth -->
+    <!-- Eth -->
     <PickUpQuest Name="War Effort" Npc="Kaspar Massi" X="602.0688" Y="37.8368" Z="1004.923" />
     </If>
     <If Condition="HasQuestAvailable(&quot;Anthousa Mona&quot;)">
-	<!-- Kelari -->
+    <!-- Kelari -->
     <PickUpQuest Name="Spirit Coercion" Npc="Anthousa Mona" X="605.3555" Y="38.04501" Z="998.8408" />
     </If>
     <If Condition="HasQuestAvailable(&quot;Anthousa Mona&quot;)">
-	<!-- Bahmi -->
+    <!-- Bahmi -->
     <PickUpQuest Name="Bound in Blood" Npc="Rahn Chuluun" X="609.3197" Y="37.8368" Z="1020.111" />
     </If>
 
@@ -434,7 +434,7 @@
     <TurnInQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" Reward="5" />
 
     <If Condition="not IsQuestCompleted(&quot;Reduce, Recycle, Reeducate&quot;)">
-	<MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
+    <MoveTo X="665.3521" Y="30.02149" Z="789.2947" />
     <Wait Seconds="28" />
     </If>
 
@@ -447,12 +447,12 @@
           <Hotspot X="665.3521" Y="30.02149" Z="789.2947" />
         </Hotspots>
       </Area>
-	</UseItemOnMobsObjective>
+    </UseItemOnMobsObjective>
 
     <TurnInQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
     <PickUpQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
 
-	<If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
+    <If Condition="HasQuest(&quot;This Might Hurt a Little&quot;)">
       <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
         <Wait Seconds="2" />
         <Python Statement="GigaRift.Chat.ExecuteCommand(&quot;equip Chain Fists of Rebirth&quot;)" />
@@ -562,10 +562,10 @@
       <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Greaves of Rebirth&quot;)" />
       </If>
-	  <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Silken Pantaloons of Rebirth&quot;)" />
       </If>
-	  <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
         <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Leather Pants of Rebirth&quot;)" />
       </If>
     </If>
