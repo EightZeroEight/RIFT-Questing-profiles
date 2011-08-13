@@ -584,7 +584,9 @@
 
     <If Condition="HasQuest(&quot;No Quarter&quot;)">
     <TalkToNpcObjective Quest="No Quarter" Npc="Raj Tahleed" X="652.6961" Y="29.5464" Z="875.2979" Options="1,1" />
-    <Wait Seconds="18" />
+    <Wait Seconds="8" />
+    <MoveTo X="652.6513" Y="29.61742" Z="851.2637" />
+    <Wait Seconds="19" />
     </If>
     <Escort Npc="Wraith LRD-X37" Quest="No Quarter" Tracking="1" />
 
