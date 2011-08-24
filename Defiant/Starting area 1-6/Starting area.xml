@@ -394,38 +394,25 @@
 
     <PickUpQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" />
     <PickUpQuest Name="Reduce, Recycle, Reeducate" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" />
-    <Wait Seconds="1" />
-      <Python Statement = "GigaRift.Me.ClearTarget()" />
-    <If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)">
-    <Python Statement="Logging.Write(&quot;Manually move quest items to inventory!&quot;)" />
-    </If>
+    <Python Statement = "GigaRift.Me.ClearTarget()" />
 
     <!-- If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)" -->
     <If Condition="not IsQuestCompleted(&quot;Fully Armed and Operational&quot;)">
-        <Python Statement="Logging.Write(&quot;Moving to questing area, prepare for manual quest.&quot;)" />
-        <MoveTo X="736.2847" Y="29.37684" Z="871.0002" />
-        <Wait Seconds="2" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
-        <Wait Seconds="2" />
-        <MoveTo X="741.6055" Y="29.37684" Z="866.2371"  />
-        <Wait Seconds="2" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
-        <Wait Seconds="2" />
-        <MoveTo X="740.7469" Y="29.3648" Z="872.0793" />
-        <Wait Seconds="2" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
-        <Wait Seconds="2" />
-        <MoveTo X="750.0294" Y="29.37684" Z="869.834" />
-        <Wait Seconds="3" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
-        <Wait Seconds="2" />
-        <MoveTo X="753.1906" Y="29.37684" Z="868.2833" />
-        <Wait Seconds="2" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
-        <Wait Seconds="2" />
-        <MoveTo X="743.5255" Y="29.36846" Z="864.4349" />
-        <Wait Seconds="2" />
-        <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
+    <MoveTo X="741.1677" Y="29.37993" Z="873.3953" />
+    <Wait Seconds="2" />
+    <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
+    <Wait Seconds="1" />
+    <MoveTo X="742.4099" Y="29.36774" Z="864.5249" />
+    <Wait Seconds="2" />
+    <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
+    <Wait Seconds="1" />
+    <MoveTo X="747.92" Y="29.54852" Z="868.0092" />
+    <Wait Seconds="2" />
+    <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
+    <Wait Seconds="1" />
+    <MoveTo X="741.0467" Y="29.55557" Z="868.9153" />
+    <Wait Seconds="2" />
+    <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
 
     <UseObjectsObjective Quest="Fully Armed and Operational" Tracking="2">
       <Area>
