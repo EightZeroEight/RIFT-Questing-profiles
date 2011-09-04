@@ -401,22 +401,30 @@
     <!-- If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)" -->
     <!-- If Condition="not IsQuestCompleted(&quot;Fully Armed and Operational&quot;)" -->
     <While Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
+    <If Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
     <MoveTo X="741.1677" Y="29.37993" Z="873.3953" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
     <Wait Seconds="1" />
+    </If>
+    <If Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
     <MoveTo X="742.4099" Y="29.36774" Z="864.5249" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
     <Wait Seconds="1" />
+    </If>
+    <If Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
     <MoveTo X="747.92" Y="29.54852" Z="868.0092" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
     <Wait Seconds="1" />
+    </If>
+    <If Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
     <MoveTo X="739.7386" Y="29.36566" Z="871.8187" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
     <Wait Seconds="1" />
+    </If>
     </While>
 
     <UseObjectsObjective Quest="Fully Armed and Operational" Tracking="2">
@@ -505,7 +513,7 @@
         <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="4" />
       </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
-        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622"  Reward="2" />
+        <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622"  Reward="4" />
       </If>
       <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
         <TurnInQuest Name="This Might Hurt a Little" Npc="Faceless Man" X="634.2551" Y="29.5464" Z="864.3622" Reward="1" />
