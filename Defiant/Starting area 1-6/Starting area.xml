@@ -285,7 +285,8 @@
       </If>
     </If>
 
-    <If Condition="HasQuest(&quot;Walking the Dogma&quot;)">
+    <!--If Condition="HasQuest(&quot;Walking the Dogma&quot;)" -->
+    <If Condition="((HasQuest(&quot;Walking the Dogma&quot;)) and (not IsQuestObjectiveCompleted(&quot;Walking the Dogma&quot;, 2)))">
     <MoveTo X="602.3568" Y="23.21828" Z="939.0084" />
     </If>
 
@@ -315,12 +316,13 @@
       </Area>
     </KillMobsObjective>
 
-    <If Condition="not IsQuestCompleted(&quot;Turning the Knob&quot;)">
+    <!--If Condition="not IsQuestCompleted(&quot;Turning the Knob&quot;)" -->
+    <IF Condition="((HasQuest(&quot;Turning the Knob&quot;)) and (not IsQuestObjectiveCompleted(&quot;Turning the Knob&quot;, 1)))">
         <MoveTo X="550.2408" Y="23.51773" Z="911.3668" />
         <Wait Seconds="3" />
         <Python Statement = "SpellManager.UseItem(&quot;Resonance Capacitor&quot;)" />
         <Wait Seconds="4" />
-    </If>
+    </IF>
 
     <KillMobsObjective Quest="Turning the Knob" Tracking="2">
       <Area>
@@ -397,7 +399,8 @@
     <Python Statement = "GigaRift.Me.ClearTarget()" />
 
     <!-- If Condition="HasQuest(&quot;Fully Armed and Operational&quot;)" -->
-    <If Condition="not IsQuestCompleted(&quot;Fully Armed and Operational&quot;)">
+    <!-- If Condition="not IsQuestCompleted(&quot;Fully Armed and Operational&quot;)" -->
+    <While Condition="((HasQuest(&quot;Fully Armed and Operational&quot;)) and (not IsQuestObjectiveCompleted(&quot;Fully Armed and Operational&quot;, 1)))">
     <MoveTo X="741.1677" Y="29.37993" Z="873.3953" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
@@ -410,9 +413,11 @@
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
     <Wait Seconds="1" />
-    <MoveTo X="741.0467" Y="29.55557" Z="868.9153" />
+    <MoveTo X="739.7386" Y="29.36566" Z="871.8187" />
     <Wait Seconds="2" />
     <Python Statement = "SpellManager.UseItem(&quot;Emergency Aquafier&quot;)" />
+    <Wait Seconds="1" />
+    </While>
 
     <UseObjectsObjective Quest="Fully Armed and Operational" Tracking="2">
       <Area>
@@ -424,7 +429,7 @@
         </Hotspots>
       </Area>
     </UseObjectsObjective>
-    </If>
+
 
     <TurnInQuest Name="Fully Armed and Operational" Npc="Raj Tahleed" X="656.7338" Y="29.5464" Z="871.6469" Reward="5" />
 
