@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Tasks>
+    <AddDefaultJobs />
+    <LoadMesh Name="Freemarch 6-20" />
+    <AddJob>
+      <Vendor SellWhites="True" SellGreens="True" SellBlues="False" SellPurples="False">
+        <Vendors>
+          <!-- Ark of the Ascended -->
+          <HotSpot X="6230.603" Y="820.0944" Z="4364.417" />
+          <HotSpot />
+        </Vendors>
+      </Vendor>
+    </AddJob>
+
+    <If Condition="HasQuest(&quot;Into the Time Machine&quot;)">
+      <!-- Warrior -->
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="Into the Time Machine" Npc="Trinian Nillor" X="6195.993" Y="831.119" Z="4294.002" Reward="2" />
+        <Wait Seconds="2" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Resurrection Glaive&quot;)" />
+        <Wait Seconds="1" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Bomani Hide Pack&quot;)" />
+        <Wait Seconds="2" />
+          <If Condition="GigaRift.Frames.YesNoDialogFrame.IsVisible">
+            <Python Statement="GigaRift.Frames.YesNoDialogFrame.ClickYes()" />
+          </If>
+      </If>
+      <!-- Rogue -->
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <TurnInQuest Name="Into the Time Machine" Npc="Trinian Nillor" X="6195.993" Y="831.119" Z="4294.002" Reward="1" />
+        <Wait Seconds="2" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Resurrection Dagger&quot;)" />
+        <Wait Seconds="1" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Bomani Hide Pack&quot;)" />
+        <Wait Seconds="2" />
+          <If Condition="GigaRift.Frames.YesNoDialogFrame.IsVisible">
+            <Python Statement="GigaRift.Frames.YesNoDialogFrame.ClickYes()" />
+          </If>
+      </If>
+    </If>
+
+    <If Condition="HasQuest(&quot;Special Delivery&quot;)">
+      <TurnInQuest Name="Special Delivery" Npc="Sanora Rellwyn" X="6158.18" Y="821.5803" Z="4402.061" />
+      <Wait Seconds="1" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Sanora Rellwyn&quot;)">
+      <PickUpQuest Name="You and What Army?" Npc="Sanora Rellwyn" X="6158.18" Y="821.5803" Z="4402.061" />
+    </If>
+
+    <If Condition="HasQuest(&quot;You and What Army?&quot;)">
+      <UseObjectsObjective Quest="You and What Army?" Tracking="1">
+        <Area>
+          <Objects>
+            <Object>Imagistancer</Object>
+          </Objects>
+          <Hotspots>
+            <Hotspot X="6147.185" Y="821.6368" Z="4422.716" />
+          </Hotspots>
+        </Area>
+      </UseObjectsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;You and What Army?&quot;)">
+      <!-- Warrior -->
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="You and What Army?" Npc="Sanora Rellwyn" X="6158.18" Y="821.5803" Z="4402.061" Reward="2" />
+        <Wait Seconds="2" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Guard of the Ascendant&quot;)" />
+      </If>
+      <!-- Rogue -->
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+        <TurnInQuest Name="You and What Army?" Npc="Sanora Rellwyn" X="6158.18" Y="821.5803" Z="4402.061" Reward="3" />
+        <!-- Wait Seconds="2" />
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Farwind Blade&quot;)" / -->
+      </If>
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Sanora Rellwyn&quot;)">
+      <PickUpQuest Name="Measure of One's Enemy"  Npc="Sanora Rellwyn" X="6158.18" Y="821.5803" Z="4402.061" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Jillian Wake&quot;)">
+      <PickUpQuest Name="Tricks of the Trades"  Npc="Jillian Wake" X="6162.203" Y="821.5856" Z="4397.248" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fenton Maroe&quot;)">
+      <PickUpQuest Name="A Bridge Too Close" Npc="Fenton Maroe" X="6221.692" Y="820.032" Z="4360.314" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Tricks of the Trades&quot;)">
+      <TalkToNpcObjective Quest="Tricks of the Trades" Npc="Ian Fellows" X="6202.361" Y="820.0527" Z="4341.707" Options="1" Tracking="3" />
+      <TalkToNpcObjective Quest="Tricks of the Trades" Npc="Cherendash Boke" X="6217.062" Y="820.042" Z="4359.766" Options="1" Tracking="2" />
+      <TalkToNpcObjective Quest="Tricks of the Trades" Npc="Vince Rottock" X="6204.633" Y="820.0394" Z="4339.476" Options="1" Tracking="1" />
+    </If>
+
+    <If Condition="HasQuest(&quot;A Bridge Too Close&quot;)">
+      <TalkToNpcObjective Quest="A Bridge Too Close" Npc="Leanna Spate" X="6166.374" Y="845.4752" Z="4224.542" Options="1" Tracking="1" />
+      <TalkToNpcObjective Quest="A Bridge Too Close" Npc="Tasim Saza" X="6145.623" Y="861.9159" Z="4146.356" Options="1" Tracking="2" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Measure of One's Enemy&quot;)">
+      <UseItemOnMobsObjective Quest="Measure of One's Enemy" Item="Absorption Rod" CastTime="3" Cooldown="7" WhenDead="False" Tracking="2">
+        <Area>
+          <Mobs>
+            <Mob>Lord Runeclift</Mob>
+          </Mobs>
+          <Hotspots>
+            <Hotspot X="6146.141" Y="866.1264" Z="4110.653" />
+          </Hotspots>
+        </Area>
+      </UseItemOnMobsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;Measure of One's Enemy&quot;)">
+      <TurnInQuest Name="Measure of One's Enemy" Npc="Lansa Cardaway" X="6152.804" Y="864.9805" Z="4121.029" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Lansa Cardaway&quot;)">
+      <PickUpQuest Name="Cannon Fodder" Npc="Lansa Cardaway" X="6152.804" Y="864.9805" Z="4121.029" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Cannon Fodder&quot;)">
+      <UseObjectsObjective Quest="Cannon Fodder" Tracking="1">
+        <Area>
+          <Objects>
+            <Object>Damaged Defiant Cannon</Object>
+          </Objects>
+          <Hotspots>
+            <Hotspot X="6240.507" Y="820.4928" Z="4251.856" />
+            <Hotspot X="6234.254" Y="820.4933" Z="4252.45" />
+            <Hotspot X="6217.465" Y="820.4957" Z="4247.466" />
+          </Hotspots>
+        </Area>
+      </UseObjectsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;A Bridge Too Close&quot;)">
+      <TurnInQuest Name="A Bridge Too Close" Npc="Fenton Maroe" X="6221.692" Y="820.032" Z="4360.314" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Cannon Fodder&quot;)">
+      <TurnInQuest Name="Cannon Fodder" Npc="Fairna Noaks" X="6211.548" Y="821.0939" Z="4378.856" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Tricks of the Trades&quot;)">
+      <TurnInQuest Name="Tricks of the Trades" Npc="Jillian Wake" X="6162.203" Y="821.5856" Z="4397.248" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fairna Noaks&quot;)">
+      <PickUpQuest Name="I'm an Old Soul" Npc="Fairna Noaks" X="6211.548" Y="821.0939" Z="4378.856" />
+    </If>
+
+    <If Condition="HasQuest(&quot;I'm an Old Soul&quot;)">
+    <TalkToNpcObjective Quest="I'm an Old Soul" Npc="Endless Court Captive" X="6250.542" Y="821.1262" Z="4341.478" Options="1" Tracking="1" />
+    <Python Statement = "GigaRift.Me.ClearTarget()" />
+    </If>
+
+    <If Condition="HasQuest(&quot;I'm an Old Soul&quot;)">
+      <TurnInQuest Name="I'm an Old Soul" Npc="Fairna Noaks" X="6211.548" Y="821.0939" Z="4378.856" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fairna Noaks&quot;)">
+      <PickUpQuest Name="Strike at the Endless" Npc="Fairna Noaks" X="6211.548" Y="821.0939" Z="4378.856" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fenton Maroe&quot;)">
+      <PickUpQuest Name="A Shift in Focus" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Dale Firmson&quot;)">
+      <PickUpQuest Name="Fuel for the Fire" Npc="Dale Firmson" X="6221.495" Y="820.0385" Z="4353.624" />
+    </If>
+
+    <If Condition="HasQuest(&quot;A Shift in Focus&quot;)">
+      <UseObjectsObjective Quest="A Shift in Focus" Tracking="1">
+        <Area>
+          <Objects>
+            <Object>Unearthed Obelisk</Object>
+          </Objects>
+          <Hotspots>
+            <Hotspot X="6305.328" Y="822.088" Z="4321.692" />
+            <Hotspot X="6325.77" Y="821.0055" Z="4289.827" />
+            <Hotspot X="6303.542" Y="822.889" Z="4270.219" />
+            <Hotspot X="6278.574" Y="821.8402" Z="4294.925" />
+          </Hotspots>
+        </Area>
+      </UseObjectsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;Strike at the Endless&quot;)">
+      <KillMobsObjective Quest="Strike at the Endless" Tracking="1">
+        <Area>
+          <Mobs>
+            <Mob>Bomani Shadowclaw</Mob>
+            <Mob>Bomani Darkspear</Mob>
+            <Mob>Endless Shadow</Mob>
+            <Mob>Endless Zealot</Mob>
+            <Mob>Endless Fanatic</Mob>
+            <Mob>Endless Demagogue</Mob>
+          </Mobs>
+          <Hotspots>
+            <Hotspot X="6320.583" Y="820.285" Z="4257.584" />
+            <Hotspot X="6308.32" Y="821.2182" Z="4256.748" />
+            <Hotspot X="6283.335" Y="821.4271" Z="4277.229" />
+            <Hotspot X="6268.714" Y="821.537" Z="4294.068" />
+            <Hotspot X="6304.609" Y="822.1308" Z="4319.614" />
+          </Hotspots>
+        </Area>
+      </KillMobsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;Fuel for the Fire&quot;)">
+      <KillMobsObjective Quest="Fuel for the Fire" Tracking="1">
+        <Area>
+          <Mobs>
+            <Mob>Bomani Shadowclaw</Mob>
+            <Mob>Bomani Darkspear</Mob>
+            <Mob>Endless Shadow</Mob>
+            <Mob>Endless Zealot</Mob>
+            <Mob>Endless Fanatic</Mob>
+            <Mob>Endless Demagogue</Mob>
+          </Mobs>
+          <Hotspots>
+            <Hotspot X="6320.583" Y="820.285" Z="4257.584" />
+            <Hotspot X="6308.32" Y="821.2182" Z="4256.748" />
+            <Hotspot X="6283.335" Y="821.4271" Z="4277.229" />
+            <Hotspot X="6268.714" Y="821.537" Z="4294.068" />
+            <Hotspot X="6304.609" Y="822.1308" Z="4319.614" />
+          </Hotspots>
+        </Area>
+      </KillMobsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;Fuel for the Fire&quot;)">
+      <TurnInQuest Name="Fuel for the Fire" Npc="Dale Firmson" X="6221.495" Y="820.0385" Z="4353.624" />
+    </If>
+
+    <If Condition="HasQuest(&quot;A Shift in Focus&quot;)">
+      <TurnInQuest Name="A Shift in Focus" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" />
+    </If>
+
+    <If Condition="HasQuest(&quot;Strike at the Endless&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="Strike at the Endless" Npc="Fairna Noaks" X="6211.548" Y="821.0939" Z="4378.856" Reward="4" />
+        <Wait Seconds="1"/>
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Hardened Tassets&quot;)" />
+      </If>
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fairna Noaks&quot;)">
+      <PickUpQuest Name="One Way Ticket" Npc="Fairna Noaks" X="6213.368" Y="820.8351" Z="4378.938" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Fenton Maroe&quot;)">
+      <PickUpQuest Name="Come Again Another Day" Npc="Fenton Maroe" X="6221.37" Y="820.032" Z="4359.999" />
+    </If>
+
+    <If Condition="HasQuestAvailable(&quot;Dale Firmson&quot;)">
+      <PickUpQuest Name="I Feel Better Already" Npc="Dale Firmson" X="6221.097" Y="820.0371" Z="4356.013" />
+    </If>
+
+    <If Condition="HasQuest(&quot;I Feel Better Already&quot;)">
+      <UseObjectsObjective Quest="I Feel Better Already" Tracking="1">
+        <Area>
+          <Objects>
+            <Object>Planar Reactor</Object>
+          </Objects>
+          <Hotspots>
+            <Hotspot X="6166.745" Y="821.6359" Z="4417.475" />
+            <Hotspot X="6158.316" Y="822.8923" Z="4413.483" />
+          </Hotspots>
+        </Area>
+      </UseObjectsObjective>
+    </If>
+    <If Condition="HasQuest(&quot;I Feel Better Already&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+        <TurnInQuest Name="I Feel Better Already" Npc="Dale Firmson" X="6221.097" Y="820.0371" Z="4356.013" Reward="4" />
+      </If>
+    </If>
+
+    <While Condition="((HasQuest(&quot;Come Again Another Day&quot;)) and (not IsQuestObjectiveCompleted(&quot;Come Again Another Day&quot;, 1)))">
+      <MoveTo X="6307.589" Y="823.0815" Z="4236.53" />
+      <Wait Seconds="2"/>
+      <Python Statement = "SpellManager.UseItem(&quot;Planar Suppression Device&quot;)" />
+      <Wait Seconds="1"/>
+    </While>
+    <While Condition="((HasQuest(&quot;Come Again Another Day&quot;)) and (not IsQuestObjectiveCompleted(&quot;Come Again Another Day&quot;, 2)))">
+      <MoveTo X="6449.594" Y="823.2527" Z="4339.714" />
+      <Wait Seconds="2"/>
+      <Python Statement = "SpellManager.UseItem(&quot;Planar Suppression Device&quot;)" />
+      <Wait Seconds="1"/>
+    </While>
+
+    <If Condition="HasQuest(&quot;One Way Ticket&quot;)">
+      <KillMobsObjective Quest="One Way Ticket" Tracking="1">
+        <Area>
+          <Mobs>
+            <Mob>Bomani Shadowclaw</Mob>
+            <Mob>Bomani Darkspear</Mob>
+          </Mobs>
+          <Hotspots>
+            <Hotspot X="6431.646" Y="820.2921" Z="4358.016" />
+            <Hotspot X="6428.371" Y="820.275" Z="4289.825" />
+            <Hotspot X="6320.583" Y="820.285" Z="4257.584" />
+			<Hotspot X="6282.014" Y="821.2832" Z="4268.453" />
+            <Hotspot X="6308.32" Y="821.2182" Z="4256.748" />
+            <Hotspot X="6283.335" Y="821.4271" Z="4277.229" />
+            <Hotspot X="6268.714" Y="821.537" Z="4294.068" />
+            <Hotspot X="6304.609" Y="822.1308" Z="4319.614" />
+          </Hotspots>
+        </Area>
+      </KillMobsObjective>
+    </If>
+
+    <If Condition="HasQuest(&quot;Come Again Another Day&quot;)">
+      <If Condition="GigaRift.Me.Class == UnitClass.Warrior">
+	    <TurnInQuest Name="Come Again Another Day" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" Reward="4" />
+        <Wait Seconds="1"/>
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Bomani Basher&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Cleric">
+	    <TurnInQuest Name="Come Again Another Day" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" Reward="4" />
+        <Wait Seconds="1"/>
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Bomani Basher&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Mage">
+	    <TurnInQuest Name="Come Again Another Day" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" Reward="1" />
+        <Wait Seconds="1"/>
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Archaeologist's Staff&quot;)" />
+      </If>
+      <If Condition="GigaRift.Me.Class == UnitClass.Rogue">
+	    <TurnInQuest Name="Come Again Another Day" Npc="Fenton Maroe" X="6222.364" Y="820.0321" Z="4360.972" Reward="3" />
+        <Wait Seconds="1"/>
+        <Python Statement = "GigaRift.Chat.ExecuteCommand(&quot;equip Seacap Shucker&quot;)" />
+      </If>
+    </If>
+
+    <If Condition="HasQuest(&quot;One Way Ticket&quot;)">
+	  <TurnInQuest Name="One Way Ticket" Npc="Fairna Noaks" X="6213.368" Y="820.8351" Z="4378.938" />
+    </If>
+  </Tasks>
+</Profile>
